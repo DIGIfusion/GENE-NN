@@ -1,0 +1,54 @@
+{
+  "model_type": "mlp",
+  "model_arch": "multihead_mlp",
+  "input_dim": 11,
+  "output_dim": 4,
+  "hidden_dims": [
+    128,
+    64
+  ],
+  "head_hidden_dims": [
+    32
+  ],
+  "dropout": 0.1,
+  "feature_cols": [
+    "Bref",
+    "Lref",
+    "beta",
+    "coll",
+    "omn_e",
+    "omt_e",
+    "q0",
+    "shat",
+    "dpdx_pm",
+    "omegatorref",
+    "kymin"
+  ],
+  "target_cols": [
+    "gamma",
+    "omega",
+    "Chi_i/Chi_e",
+    "D_e/Chi_e"
+  ],
+  "target_transforms": {
+    "gamma": "raw",
+    "omega": "raw",
+    "Chi_i/Chi_e": "raw",
+    "D_e/Chi_e": "raw"
+  },
+  "target_scaler": "standard",
+  "target_eps": 1e-08,
+  "output_activations": {
+    "gamma": "linear",
+    "omega": "linear",
+    "Chi_i/Chi_e": "linear",
+    "D_e/Chi_e": "linear"
+  },
+  "positive_penalty_targets": [
+    "gamma",
+    "Chi_i/Chi_e"
+  ],
+  "positive_penalty_weight": 0.1,
+  "final_layer": "linear",
+  "hidden_activation": "ReLU"
+}

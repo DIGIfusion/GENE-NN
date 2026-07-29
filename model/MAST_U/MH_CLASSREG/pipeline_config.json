@@ -1,0 +1,50 @@
+{
+  "task_type": "classification_plus_multioutput_regression",
+  "class_target": "omega",
+  "regression_targets": [
+    "omega",
+    "Chi_i/Chi_e",
+    "D_e/Chi_e"
+  ],
+  "feature_cols": [
+    "Bref",
+    "Lref",
+    "beta",
+    "coll",
+    "omn_e",
+    "omt_e",
+    "q0",
+    "shat",
+    "dpdx_pm",
+    "omegatorref",
+    "kymin"
+  ],
+  "thresholds": [
+    -1.0,
+    1.0
+  ],
+  "class_names": [
+    "(-inf, -1.0)",
+    "[-1.0, 1.0)",
+    "[1.0, inf)"
+  ],
+  "classifier_dir": "classifier",
+  "regressors_dir": "regressors",
+  "target_transforms": {
+    "omega": "raw",
+    "Chi_i/Chi_e": "raw",
+    "D_e/Chi_e": "raw"
+  },
+  "target_scaler": "standard",
+  "target_eps": 1e-08,
+  "reg_model_arch": "multihead_mlp",
+  "hidden_dims_reg": [
+    64,
+    32
+  ],
+  "head_hidden_dims_reg": [
+    16
+  ],
+  "positive_penalty_targets": [],
+  "positive_penalty_weight": 0.0
+}
